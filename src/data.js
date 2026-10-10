@@ -29,18 +29,15 @@ export const work = [
     title: 'Geo-redundant public Wi-Fi platform',
     context: 'Ezelink, for a national telecom operator',
     period: '2025 – now',
-    tech: ['Laravel', 'Symfony', 'Vue.js', 'MySQL', 'Redis', 'SMPP', 'REST'],
+    tech: ['Laravel', 'Symfony', 'Vue.js', 'MySQL', 'Redis'],
     problem:
-      'The platform behind public Wi-Fi login ran from a single site. If that site went down, every hotspot sensor lost its connection to the core and users could not sign in.',
+      'The platform behind public Wi-Fi login ran from a single site. If that site went down, users could not sign in.',
     approach: [
-      'Moved to an active-active, multi-site design where every site serves sensor traffic on its own, with no stretched database cluster and no global load balancer.',
-      'Sensors send keepalives to all known sites in parallel and pick the healthiest one, so failover happens without manual steps.',
-      'Cross-site consistency comes from an application-level sync layer with versioned config, so a sensor never accepts an older config from a site that has not caught up.',
-      'Config writes go through a single active admin site; others redirect clients there, which keeps sensor identities conflict-free.',
-      'SMS one-time-password login retries the same request ID on the next site, so a site outage does not interrupt sign-in.',
+      'Building a multi-site design where every site can serve users on its own.',
+      'Hotspots switch to a healthy site automatically when one goes down.',
+      'Keeping data and settings consistent across sites, including SMS login.',
     ],
-    outcome:
-      'Adding a site becomes a configuration step, not a redesign, and a site-level failure no longer stops user logins.',
+    outcome: 'A single site failure no longer stops users from signing in.',
     diagram: true,
   },
   {
