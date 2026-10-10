@@ -1,0 +1,93 @@
+:root {
+  --paper: #f5f7fa;
+  --panel: #ffffff;
+  --ink: #14213d;
+  --muted: #5b6475;
+  --line: #c9d1db;
+  --signal: #1a8a82;
+  --signal-soft: #e3f3f1;
+  --fault: #c2410c;
+  --fault-soft: #fdede4;
+  --focus: #2563eb;
+  --sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --max: 1120px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1626;
+    --panel: #172036;
+    --ink: #e8edf5;
+    --muted: #9aa5b8;
+    --line: #2f3b54;
+    --signal: #3cc4b8;
+    --signal-soft: #15343a;
+    --fault: #f08a5d;
+    --fault-soft: #3a2320;
+    --focus: #7aa7ff;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
